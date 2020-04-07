@@ -1,0 +1,172 @@
+                <!doctype html>
+                <html lang="en">
+                  {% load staticfiles %}
+                  <head>
+                    <meta charset="utf-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+                    <meta name="description" content="">
+                    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+                    <meta name="generator" content="Jekyll v3.8.6">
+                    <title>Tuhin's Portfolio</title>
+                    <link rel="canonical" href="https://getbootstrap.com/docs/4.4/examples/album/">
+                    <link href='https://fonts.googleapis.com/css?family=Berkshire+Swash' rel='stylesheet' type='text/css'>
+                    <link href="https://fonts.googleapis.com/css?family=Electrolize&display=swap" rel="stylesheet">
+                    <link href="https://fonts.googleapis.com/css?family=Sanchez&display=swap" rel="stylesheet"> 
+                    <link href="https://fonts.googleapis.com/css?family=Changa&display=swap" rel="stylesheet"> 
+                    <link rel="canonical" href="https://getbootstrap.com/docs/4.4/examples/album/">
+
+                    <!-- Bootstrap core CSS -->
+                    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+                    
+                    <!-- Bootstrap for Social media icons  -->
+                    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+                    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+                    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+                    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+                    <style>
+                     .bd-placeholder-img {
+                        font-size: 1.125rem;
+                        text-anchor: middle;
+                        -webkit-user-select: none;
+                        -moz-user-select: none;
+                        -ms-user-select: none;
+                        user-select: none;
+                      }
+
+                      @media (min-width: 768px) {
+                        .bd-placeholder-img-lg {
+                          font-size: 3.5rem;
+                        }
+                      }
+
+                    .typewriter h5{
+                      color:darkslategray;
+                      font-family: fantasy;
+                      overflow: hidden;
+                      border-right: .15em solid orange; 
+                      white-space: nowrap; 
+                      margin: 0 auto; 
+                      letter-spacing: .15em; 
+                      animation: 
+                        typing 3.5s steps(30, end),
+                        blink-caret .5s step-end infinite;
+                    } 
+
+                    h1, h2 {
+                      color:darkslategray;
+                      font-family: fantasy;
+                    }
+
+                    /* The typing effect */
+                    @keyframes typing {
+                      from { width: 0 }
+                      to { width: 100% }
+                    }
+
+                    @keyframes blink-caret {
+                      from, to { border-color: transparent }
+                      50% { border-color: orange }
+                    } 
+
+                  </style>
+                  <!-- Custom styles for this template -->
+                  <link href="album.css" rel="stylesheet">
+                  </head>
+                  <body>
+                    <header>
+                        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                            <a class="navbar-brand" href="{% url 'home' %}">Tuhin Subhra Samanta</a>
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                              <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                              <div class="navbar-nav ml-auto">
+                                <a class="nav-item nav-link" href="https://www.linkedin.com/in/tuhin-subhra-samanta-56466166/" target="_blank">Linkedin</a>
+                                <a class="nav-item nav-link" href="{% static 'TuhinSubhraSamanta_Resume_pdf_April.pdf'%}">Resume</a>
+                                <a class="nav-item nav-link" href="blog/">Blog</a>
+                              </div>
+                            </div>
+                          </nav>
+                </header>
+                <main role="main">
+                  <section class="jumbotron text-center">
+                    <div class="container" >
+                      <h1>Hi I'm Tuhin Subhra Samanta</h1>
+                      <img src="{% static 'Tuhin_2.jpg' %}" class="rounded-circle" alt="Tuhin Samanta"/>
+                      <br/>
+                      <div class="typewriter" id="myTypewriter">
+                      <h5>My Skills: Python, Machine Learning, Deep Learning, NLP, SQL, MongoDB, Django, Tableau, C#, UiPath</h5>
+                      </div>
+                      <p class="lead text-muted">I am a curious learner. I try learning whatever comes on my way. Though I keep special interest on Data Science and Automation Technologies. I have implemented saveral Projects on Machine Learning, Predictive analysis, Deep Learning and NLP. Other than thatI love blogging and travelling off-beat places. Please reach out to me if you think I can assist you or your company in solving any problem.
+                      </p>
+                      <p>
+                        <a href="mailto:tuhinssam@gmail.com" class="btn btn-primary my-2" target="_blank">Email Me</a>
+                        <a href="https://github.com/tuhinssam" class="btn btn-primary my-2" target="_blank">My GitHub</a>
+                        <a href="https://www.kaggle.com/tuhinssam" class="btn btn-primary my-2" target="_blank">Kaggle</a>
+                      </p>
+                    </div>
+                  </section>
+                  <div><h2 class="text-center">My Projects</h2></div>
+                  <div class="album py-5 bg-light">
+                    <div class="container">
+                      <div class="row">
+                        {% for job in jobs.all %}
+                        <div class="col-md-4">
+                          <div class="card mb-4 shadow-sm">
+                            <img class="card-img-top" src="{{job.image.url}}" height="150" width="100%"/>
+                            <!--<svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>-->
+                            <div class="card-body">
+                              <p class="card-text">{{job.summary}}</p>
+                              <a href="{{job.links}}">{{job.header}}</a>
+                            </div>
+                          </div>
+                        </div>
+                      {% endfor %}
+                    </div>
+                  </div>
+                  </div>
+                </main>
+                <footer class="text-muted">
+                  <div class="container" style="float: left; padding-left: 15%;">
+                    <p style="font-size: small; font-weight: bold;">© Tuhin S Samanta {% now 'Y' %}</p>  
+                  </div>
+                  <div class="social" style="padding-left: 5%;"> 
+                    <div class="websure-social-inner">
+                      <div class="social-img-wrp websure-socialink prk_bordered websure-linkedin">
+                        <a href="https://www.linkedin.com/in/tuhin-subhra-samanta-56466166/" target="_blank">
+                          <span class="websure-linkedin fa fa-linkedin"></span>
+                        </a>
+                        <a href="https://github.com/tuhinssam" target="_blank">
+                          <span class="websure-facebook fa fa-github" style="padding-left: 2%"></span>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </footer>
+                <script>
+                  var messages=["message1","message2  message2 message2","message3 message3"];
+                  var rank=0;
+
+                  // Code for Chrome, Safari and Opera
+                  document.getElementById("myTypewriter").addEventListener("webkitAnimationEnd", changeTxt);
+
+                  // Standard syntax
+                  document.getElementById("myTypewriter").addEventListener("animationend", changeTxt);
+
+                  function changeTxt(e){
+                    _h1 = this.getElementsByTagName("h1")[0];
+                    _h1.style.webkitAnimation = 'none'; // set element animation to none
+                    setTimeout(function() { // you surely want a delay before the next message appears
+                        _h1.innerHTML=messages[rank];
+                        var speed =3.5*messages[rank].length/20; // adjust the speed (3.5 is the original speed, 20 is the original string length
+                        _h1.style.webkitAnimation = 'typing '+speed+'s steps(40, end), blink-caret .75s step-end infinite'; //  switch to the original set of animation      
+                        (rank===messages.length-1)?rank=0:rank++; // if you have displayed the last message from the array, go back to the first one, else go to next message
+                      }, 1000);
+                  }
+                </script>
+                <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+                <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+                <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+                </body>
+                </html>
